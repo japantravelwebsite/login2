@@ -68,10 +68,11 @@ def Chubu_view(request):
 def Wrong_view(request):  
     msg = 0
     if msg ==0:
+        msg +=1
         return render(request,"users/Wrong.html")
         # 3초 동안 딜레이
         time.sleep(3)
-        msg +=1
+        
     return redirect("user:login")
 
 
