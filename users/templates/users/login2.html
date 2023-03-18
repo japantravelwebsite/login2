@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+   <script src="Scripts/maphighlight.js" type="text/javascript"></script>
+    로그인 페이지
+    
+
+<br>
+{% load static %}
+{% if user.is_authenticated %}
+    로그인 성공!
+    {{user.username}}님 환영합니다.
+    <a href="{% url 'user:logout' %}">로그아웃</a>
+    <br>
+    <div id="tooltip">dddddd</div>
+    <style>
+        
+    </style>
+    <div>
+        
+        <img src="img.jpg" alt="내이미지1" />
+        <img src="https://www.google.com/url?sa=i&url=http%3A%2F%2Fm.blog.naver.com%2Fsoussama%2F221499115002&psig=AOvVaw3uOlf5T9ZoOh0WLJStAcc_&ust=1678686801744000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIDYqebZ1f0CFQAAAAAdAAAAABAE" alt="고덕에이스3시">
+        <img src="pngwing.com.png" alt="내이미지3">
+
+        <!--<img src="../../../static/image/image.jpg" alt="3시님바보;;">-->
+        <img src="/static/image/image2.jpg" alt="3시님바보;;3" usemap="#imgmap2023312235654" >
+        <map id="imgmap2023312235654" name="imgmap2023312235654">
+            <area shape="rect" alt="Toyama"  title="Toyama" coords="494,14,584,84" href="{% url 'user:Toyama' %}" target=""  tag = "sdfa" onmouseover= "showToolTip('현재 도야마' )" onmouseout="hideToolTip()"  />
+            <area shape="rect" alt="Takayama" title="Takayama" coords="514,261,599,328" href="{% url 'user:Takayama' %}" target="" onmouseover = "showToolTip('this is areal 2' )" onmouseout="hideToolTip()"/>
+            <area shape="rect" alt="Gero" title="Gero" coords="495,419,613,498" href="{% url 'user:Gero' %}" target="" onmouseover = "showToolTip('this is areal 3' )" onmouseout="hideToolTip()" />
+            <area shape="rect" alt="Nagoya" title="Nagoya" coords="355,681,499,773" href="{% url 'user:Nagoya' %}" target="" onmouseover = "showToolTip('this is areal 4' )" onmouseout="hideToolTip()" /><!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>
+        <!--<img src="/../login-master/jtwsite/static/image/image.jpg" alt="3시님바보2">
+        <img src=" {% static 'image.jpg' %}" alt = "3tk" width="300px">-->
+
+
+
+    </div>
+    <div id="tooltip">dddddd</div>
+    <script type="text/javascript">
+        function showToolTip(text){
+            var tooltip = document.getElementById("tooltip");
+            tooltip.innerHTML = text;
+            tooltip.style.display = "block";
+
+        }
+        function hideToolTip(){
+            var tooltip = document.getElementById("tooltip");
+            tooltip.style.display = "none";
+        }
+
+       
+
+        
+            
+
+    </script>
+    
+{% else %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input name="username" type="text">
+    <input name="password" type="password">
+    <input type="submit" value="로그인">
+    <img src="https://www.google.com/url?sa=i&url=http%3A%2F%2Fm.blog.naver.com%2Fsoussama%2F221499115002&psig=AOvVaw3uOlf5T9ZoOh0WLJStAcc_&ust=1678686801744000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIDYqebZ1f0CFQAAAAAdAAAAABAE" alt="내이미지2">
+</form>
+<a href="{% url 'user:signup' %}">회원가입</a>
+
+
+<div>
+    
+    <!-- <ul class="messages">
+     {% for message in messages %}
+         {{ message.tag }}
+         {{ message }}
+     {% endfor %}
+
+    </ul> --> 
+    <script>
+    var msg = "{{msg}}"
+    if(msg =="입력실패" )
+    {
+      alert(msg)
+
+    }
+    </script>
+<div>
+    
+    
+ 
+    	
+</div>
+</div>
+
+
+{% endif %}
+    
+</body>
+</html>

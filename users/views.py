@@ -22,7 +22,7 @@ def login_view(request):
             messages.info(request, "입력이 잘못되었습니다.")
             msg = "입력실패"
             
-    return render(request, "users/login.html",{'msg':msg})
+    return render(request, "users/login2.html",{'msg':msg})#20230312김정현
 
 def logout_view(request):
     logout(request)
@@ -51,3 +51,14 @@ def signup_view(request):
             msg = "빈칸을 모두 채워주세요"
             # messages.info(request, "빈칸을 모두 채워주세요")
     return render(request, "users/signup.html",{'msg':msg})
+
+def GetNagoya(request):
+    return render(request, "users/Nagoya.html")
+def GetTakayama(request):
+    return render(request, "users/Takayama.html")
+def GetToyama(request):
+    return render(request, "users/Toyama.html")
+def GetGero(request):
+    return render(request, "users/Gero.html")
+def GetBacktoLogin():
+    return redirect("user:login")
