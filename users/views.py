@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from django.contrib import messages
 from .models import User
+import time
 # Create your views here.
 
 
@@ -62,3 +63,15 @@ def GetGero(request):
     return render(request, "users/Gero.html")
 def GetBacktoLogin():
     return redirect("user:login")
+def Chubu_view(request):
+    return render(request, "users/Chubu.html")
+def Wrong_view(request):  
+    msg = 0
+    if msg ==0:
+        return render(request,"users/Wrong.html")
+        # 3초 동안 딜레이
+        time.sleep(3)
+        msg +=1
+    return redirect("user:login")
+
+

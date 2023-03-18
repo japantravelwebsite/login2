@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+   <script src="Scripts/maphighlight.js" type="text/javascript"></script>
+    로그인 페이지
+    
+
+<br>
+{% load static %}
+{% if user.is_authenticated %}
+    로그인 성공!
+    {{user.username}}님 환영합니다.
+    <a href="{% url 'user:logout' %}">로그아웃</a>
+    <br>
+    
+    
+    
+    
+{% else %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input name="username" type="text">
+    <input name="password" type="password">
+    <input type="submit" value="로그인">
+    <img src="https://www.google.com/url?sa=i&url=http%3A%2F%2Fm.blog.naver.com%2Fsoussama%2F221499115002&psig=AOvVaw3uOlf5T9ZoOh0WLJStAcc_&ust=1678686801744000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIDYqebZ1f0CFQAAAAAdAAAAABAE" alt="내이미지2">
+</form>
+<a href="{% url 'user:signup' %}">회원가입</a>
+
+
+<div>
+    
+    <!-- <ul class="messages">
+     {% for message in messages %}
+         {{ message.tag }}
+         {{ message }}
+     {% endfor %}
+
+    </ul> --> 
+    <script>
+    var msg = "{{msg}}"
+    if(msg =="입력실패" )
+    {
+      alert(msg)
+
+    }
+    </script>
+<div>
+    
+    
+ 
+    	
+</div>
+</div>
+
+
+{% endif %}
+    
+</body>
+</html>
